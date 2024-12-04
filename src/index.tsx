@@ -1,3 +1,3 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+// src/index.ts
+export { SDK } from './SDK';
+export type { SDKEnvironment } from './types/SDKEnvironment';

@@ -8,15 +8,21 @@ nts-sdk
 npm install react-native-nts-rn-sdk
 ```
 
+```sh
+yarn add react-native-nts-rn-sdk
+```
+
 ## Usage
 
 
 ```js
-import { multiply } from 'react-native-nts-rn-sdk';
+import { Block } from 'react-native-nts-rn-sdk';
 
 // ...
 
-const result = await multiply(3, 7);
+<Block>
+  {/* Your view here */}
+</Block>
 ```
 
 

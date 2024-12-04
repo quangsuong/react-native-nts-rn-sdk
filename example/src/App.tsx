@@ -1,17 +1,26 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-nts-rn-sdk';
+import { useEffect, useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { SDK, type SDKEnvironment } from 'react-native-nts-rn-sdk';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+  const [result, setResult] = useState<SDKEnvironment | null>();
 
   useEffect(() => {
-    multiply(3, 7).then(setResult);
+    const sdkEnvironment: SDKEnvironment = {
+      environment: 'development',
+      apiKey: 'string',
+      apiSecret: 'string',
+      apiProvider: 'string',
+      apiClientId: 'string',
+      baseUrl: 'string',
+    };
+    SDK.initialize(sdkEnvironment);
+    setResult(SDK.getEnvironment());
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result: {result?.baseUrl}</Text>
     </View>
   );
 }
